@@ -75,10 +75,25 @@
             font-size: 1.1em;
         }
         
-        .music-indicator {
+        .top-right-container {
             position: absolute;
             top: 15px;
             right: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .profile-photo {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid #ff4081;
+            box-shadow: 0 0 10px rgba(255, 64, 129, 0.5);
+        }
+        
+        .music-indicator {
             color: #ff4081;
             font-size: 24px;
             animation: pulse 2s infinite;
@@ -112,7 +127,12 @@
     <div id="hearts"></div>
     
     <div class="container">
-        <div class="music-indicator" id="musicIndicator">♪</div>
+        <div class="top-right-container">
+            <!-- Fotoğrafları buraya ekleyin -->
+            <img src="https://via.placeholder.com/40" class="profile-photo" id="photo1">
+            <img src="https://via.placeholder.com/40" class="profile-photo" id="photo2">
+            <div class="music-indicator" id="musicIndicator">♪</div>
+        </div>
         <h1>Ayse 🤍 Çınar</h1>
         
         <div class="counter" id="days">0 gün</div>
@@ -188,10 +208,23 @@
             document.getElementById("seconds").textContent = `${seconds} saniye`;
         }
         
+        // Fotoğraf yükleme fonksiyonu
+        function loadPhotos() {
+            // Burada fotoğraf URL'lerini değiştirebilirsiniz
+            // Örnek: 
+            // document.getElementById('photo1').src = 'aysegöz.png';
+            // document.getElementById('photo2').src = 'cinargöz.png';
+            
+            // Şu an placeholder kullanılıyor
+            document.getElementById('photo1').src = 'cinargöz.png';
+            document.getElementById('photo2').src = 'aysegöz.png';
+        }
+        
         // Sayfa yüklendiğinde çalıştır
         window.onload = function() {
             createHearts();
             updateCounter();
+            loadPhotos(); // Fotoğrafları yükle
             setInterval(updateCounter, 1000);
             
             // Şarkı çalma işlevi
